@@ -1,22 +1,32 @@
 #include <iostream>
 using namespace std;
 
+class GFC{
+
+public:
 int fib(int n)
 {
-    if(n == 0|| n == 1)
+    int f[n+2];
+    int i;
+
+    f[0] = 0;
+    f[1] = 1;
+
+    for(i=2; i<=n; i++)
     {
-        return n;
+        f[i] = f[i-1] + f[i-2];
     }
-    else 
-    {
-        return fib(n-1)+fib(n-2);
-    }
+
+    return f[n];
+
 }
+};
 
 int main()
 {
-   int n;
-   cin >> n ;
-   cout << "fibonacci number n = " << fib(n) ; 
+   GFC g;
+   int n ;
+   cin >> n;
+   cout << "fibonacci number n = " << g.fib(n) ; 
    return 0;
 }
