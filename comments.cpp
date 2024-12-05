@@ -35,12 +35,16 @@ void multiply(int F[2][2], int M[2][2])
 void power(int F[2][2], int n)
 {
     int i; 
+    if(n == 0 || n == 1) return;
+    
     int M[2][2] = {{1, 1}, {1, 0}};
 
-    for(i = 2; i<=n; i++)
-    {
-        multiply(F, M);
-    }
+    power(F, n/2);
+    multiply(F, F);
+
+    if(n % 2 != 0)
+    multiply(F, M);
+
 }
 
 int main()
